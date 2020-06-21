@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 export default function Components(props) {
   return (
       <div>
-        <Button color="primary">Danielus Rafaellus</Button>
+        <Button color="primary">Danielus Rafaellus ist Bombardus</Button>
       </div>
   );
 }
