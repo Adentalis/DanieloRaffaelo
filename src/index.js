@@ -5,11 +5,14 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Components from "./views/Components/Components.js";
+import LandingPage from "./views/LandingPage/LandingPage.js";
+
 
 ReactDOM.render(
     <Router>
     <Switch>
-      <Route path="/" component={Components} />
+      <Route path="/" component={LandingPage} />
+      <Route path="/test" component={Components} />
     </Switch>
   </Router>,
   document.getElementById('root')
