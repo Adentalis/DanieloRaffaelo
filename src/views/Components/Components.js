@@ -2,8 +2,6 @@ import React from "react";
 
 //import SectionBasics from "./Sections/SectionBasics.js";
 import Button from "@material-ui/core/Button";
-
-import Header from "../../components/Header/Header.js";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Zoom from "@material-ui/core/Zoom";
@@ -12,7 +10,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-
 import image from "../../assets/img/profile-bg.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -70,7 +67,6 @@ ScrollTop.propTypes = {
 export default function Components(props) {
   return (
     <div>
-      <Header></Header>
       <div style={{
           backgroundImage: "url(" + image + ")",
           backgroundSize: "auto",
@@ -79,7 +75,7 @@ export default function Components(props) {
         <Button color="primary">Danielus Rafaellus ist Bombardus</Button>
         <Container >
           <Box my={2} color= "#00ff00">
-            {[...new Array(1150)]
+            {[...new Array(50)]
               .map(
                 () => `J ist die beste! `
               )
@@ -91,7 +87,9 @@ export default function Components(props) {
             <KeyboardArrowUpIcon />
           </Fab>
         </ScrollTop>
+        <Button color="primary">Click me!</Button>
       </div>
-    </div>
+      <Button color="primary">Danielus Rafs ist Bombardus</Button>
+      </div>
   );
 }
