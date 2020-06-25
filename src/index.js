@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
   <Router>
-    <App defaultSessionLength='25'></App>
+    <App></App>
   </Router>,
   document.getElementById("root")
 );
