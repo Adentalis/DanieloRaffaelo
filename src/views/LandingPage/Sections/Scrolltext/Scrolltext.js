@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 //import SectionBasics from "./Sections/SectionBasics.js";
 import Button from "@material-ui/core/Button";
@@ -84,7 +84,6 @@ export default function Scrolltext(props) {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-      <Button color="primary">Click me!</Button>
     </div>
   );
 }

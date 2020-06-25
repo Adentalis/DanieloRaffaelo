@@ -8,7 +8,7 @@ const formatTime = (timeLeftInSecond) => {
   let second = timeLeftInSecond - 60 * minute;
   if (second < 10) second = '0' + second;
 
-  return timeLeftInSecond;
+  return `${minute}:${second}`;
 }
 
 export default class Times extends Component {
