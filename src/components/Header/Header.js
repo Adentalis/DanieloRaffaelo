@@ -17,12 +17,13 @@ export default function Header(props) {
           size="140px"
           ariaLabel="View source on Github"
           />
-
+        
       <Toolbar id="back-to-top-anchor">
-        <Button> Hallo JJ</Button>
-        <Button> Hallo {props.startText}</Button>
+        <Button href="/"> Danielus Raffaellus</Button>
+        <Button href="/vocabulary"> English {props.startText}</Button>
         <h2>It is </h2>
       </Toolbar>
+
     </AppBar>
   );
 }
