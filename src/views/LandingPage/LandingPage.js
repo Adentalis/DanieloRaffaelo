@@ -64,6 +64,7 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
+
 export default function Components(props) {
   return (
     <div>
@@ -89,7 +90,7 @@ export default function Components(props) {
         </ScrollTop>
         <Button color="primary">Click me!</Button>
       </div>
-      <Button color="primary">Danielus Rafs ist Bombardus</Button>
+      <Button color="primary">Danielus Rafaellus ist Bombardus</Button>
       </div>
   );
 }
