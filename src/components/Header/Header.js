@@ -9,21 +9,20 @@ import Folkme from "../Folkme/Folkme.js";
 export default function Header(props) {
   return (
     <AppBar position="sticky">
-          <Folkme
-          targetURL=""
-          color="#4c4d4e"
-          backgroundColor="#ffafff"
-          position="right"
-          size="140px"
-          ariaLabel="View source on Github"
-          />
-        
+      <Folkme
+        targetURL=""
+        color="#4c4d4e"
+        backgroundColor="#ffafff"
+        position="right"
+        size="140px"
+        ariaLabel="View source on Github"
+      />
+
       <Toolbar id="back-to-top-anchor">
         <Button href="/"> Danielus Raffaellus</Button>
         <Button href="/vocabulary"> English {props.startText}</Button>
-        <h2>It is </h2>
+        <Button href="/metamask"> Metamask </Button>
       </Toolbar>
-
     </AppBar>
   );
 }
