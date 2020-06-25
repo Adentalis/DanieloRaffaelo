@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Times from "./views/LandingPage/Sections/Times/Times.js";
-import Components from "./views/LandingPage/LandingPage.js";
+import LandingPage from "./views/LandingPage/LandingPage.js";
 import Header from "./components/Header/Header.js";
 
 import "./App.css";
@@ -24,7 +24,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header startText="Hihihihi" />
-        <Components />
+        <LandingPage />
+        
         <Times
           timeLabel={this.state.timeLabel}
           timeLeftInSecond={this.state.timeLeftInSecond}
