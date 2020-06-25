@@ -9,7 +9,14 @@ import Folkme from "../Folkme/Folkme.js";
 export default function Header(props) {
   return (
     <AppBar position="sticky">
-          <Folkme></Folkme>
+          <Folkme
+          targetURL=""
+          color="#4c4d4e"
+          backgroundColor="#ffafff"
+          position="right"
+          size="140px"
+          ariaLabel="View source on Github"
+          />
 
       <Toolbar id="back-to-top-anchor">
         <Button> Hallo JJ</Button>
