@@ -29,15 +29,6 @@ export default class LandingPage extends Component {
           this.phaseControl();
         }, 1000),
       });
-    } else {
-      this.audioBeep.current.pause();
-      this.audioBeep.current.currentTime = 0;
-      this.state.timerInterval && clearInterval(this.state.timerInterval);
-
-      this.setState({
-        isStart: !this.state.isStart,
-        timerInterval: null,
-      });
     }
   }
 
