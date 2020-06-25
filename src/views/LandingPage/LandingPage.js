@@ -17,8 +17,17 @@ export default class LandingPage extends Component {
     };
 
     this.onStartStop = this.onStartStop.bind(this);
-
   }
+
+  componentDidMount = async () => {
+    try {
+      console.log("Hello Youtube");
+    } catch (error) {
+      // Catch any errors for any of the above operations.
+      alert(`LandingPage did not mount hmm?!`);
+      console.error(error);
+    }
+  };
 
   onStartStop() {
     if (!this.state.isStart) {
