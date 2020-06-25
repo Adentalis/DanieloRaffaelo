@@ -9,7 +9,6 @@ import "./App.css";
 export default class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       breakLength: Number.parseInt(this.props.defaultBreakLength, 10),
       sessionLength: Number.parseInt(this.props.defaultSessionLength, 10),
@@ -25,7 +24,6 @@ export default class App extends Component {
       <div className="App">
         <Header startText="Hihihihi" />
         <LandingPage />
-        
         <Times
           timeLabel={this.state.timeLabel}
           timeLeftInSecond={this.state.timeLeftInSecond}
