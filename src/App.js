@@ -1,16 +1,20 @@
 import React, { Component } from "react";
-import "./App.css";
 
 import Components from "./views/Components/Components.js";
 import Header from "./components/Header/Header.js";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Components />
-    </div>
-  );
-}
+import "./App.css";
 
-export default App;
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="App">
+        <Header startText="Hihihihi" />
+        <Components />
+      </div>
+    );
+  }
+}
