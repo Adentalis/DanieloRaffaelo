@@ -1,18 +1,41 @@
 import React, { Component } from "react";
 import ObjectList from "react-object-list";
 //import { FontAwesome } from "react-object-list/icons";
+//import { TextContainsFilter } from "react-object-list/filters";
 
 const mockData = [];
-for(var i = 0 ; i < 5 ; i++){
-    mockData.push({
-        email: "hans22@ff",
-        gender: "fff",
-        first_name: "fd",
-        last_name: " gg",
-      });
+for (var i = 0; i < 5; i++) {
+  mockData.push({
+    email: "hans22@ff",
+    gender: "fff",
+    first_name: "fd",
+    last_name: " gg",
+  });
 }
 
 export default class VocabularyPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 1,
+      perPage: 7,
+      totalCount: mockData.length,
+      sortKeys: [],
+      data: mockData.slice(0, 7),
+      extraColumns: ["last_name"],
+      filters: [
+        {
+          filterKey: "first_name",
+          active: false,
+          name: "First Name",
+          props: {
+            updateDelay: 0,
+          },
+        },
+      ],
+    };
+  }
+
   render() {
     return (
       <div>
