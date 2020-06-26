@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import Button from "@material-ui/core/Button";
-import AdvancedList from "../../components/List/AdvancedList.js";
+//import Button from "@material-ui/core/Button";
+import Table from "../../c../../components/Table/MaterialTable.js"
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const creds = require("./client_secret.json");
@@ -38,11 +38,11 @@ export default class VocabularyPage extends Component {
   render() {
     return (
       <div>
-        <Button onClick={this.accessSpreadsheet}>
+        {/* <Button onClick={this.accessSpreadsheet}>
           Ich werde english können!
         </Button>
-        <Button onClick={this.logState}>State</Button>
-        <AdvancedList />,
+        <Button onClick={this.logState}>State</Button> */}
+        <Table />
       </div>
     );
   }
