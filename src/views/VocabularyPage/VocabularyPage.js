@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import Button from "@material-ui/core/Button";
 import Table from "../../c../../components/Table/MaterialTable.js";
-const { promisify } = require("util");
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const creds = require("./client_secret.json");
@@ -15,15 +14,11 @@ export default class VocabularyPage extends Component {
     super(props);
     this.state = {
       doc: 0,
-      sheet: 0,
-      promise: 0,
-      res: 0,
-      promises: 0,
       words:[]
     };
     this.accessSpreadsheet = this.accessSpreadsheet.bind(this);
     this.doStuff = this.doStuff.bind(this);
-    this.handle = this.handle.bind(this);
+    this.resolveSheets = this.resolveSheets.bind(this);
   }
 
   async accessSpreadsheet() {
@@ -39,7 +34,7 @@ export default class VocabularyPage extends Component {
     this.setState({ doc });
     for (var k in doc._rawSheets) {
       var sheet = doc._rawSheets[k];
-      sheet.getRows().then((res) => this.handle(res));
+      sheet.getRows().then((res) => this.resolveSheets(res));
     }
   }
 
@@ -47,7 +42,7 @@ export default class VocabularyPage extends Component {
     console.log(this.state);
   }
 
-  handle(res) {
+  resolveSheets(res) {
     console.log(res.length);
     var data = [];
     res.forEach((row) => {
