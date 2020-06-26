@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Button from "@material-ui/core/Button";
-import ObjectList from "react-object-list";
-//import { FontAwesome } from "react-object-list/icons";
+import AdvancedList from "../../components/List/AdvancedList.js";
+
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const creds = require("./client_secret.json");
 const doc = new GoogleSpreadsheet(
@@ -12,167 +12,34 @@ const doc = new GoogleSpreadsheet(
 const mockData = [];
 mockData.push({
   email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
-});mockData.push({
-  email: "hans22@ff",
-  gender:"fff",
-  first_name:"fd",
-  last_name:" gg"
+  gender: "fff",
+  first_name: "fd",
+  last_name: " gg",
 });
-
-
+mockData.push({
+  email: "hans22@ff",
+  gender: "fff",
+  first_name: "fd",
+  last_name: " gg",
+});
+mockData.push({
+  email: "hans22@ff",
+  gender: "fff",
+  first_name: "fd",
+  last_name: " gg",
+});
+mockData.push({
+  email: "hans22@ff",
+  gender: "fff",
+  first_name: "fd",
+  last_name: " gg",
+});
+mockData.push({
+  email: "hans22@ff",
+  gender: "fff",
+  first_name: "fd",
+  last_name: " gg",
+});
 
 export default class VocabularyPage extends Component {
   constructor(props) {
@@ -207,33 +74,7 @@ export default class VocabularyPage extends Component {
           Ich werde english können!
         </Button>
         <Button onClick={this.logState}>State</Button>
-        <ObjectList
-          icons={{
-            OptionalFields: <i className="list" />,
-            Favourites: <i className="heart" />,
-            RemoveFavourite: <i className="trash" />,
-            RemoveFilter: <i className="minus-circle" />,
-            DropdownOpen: <i className="caret-down" />,
-            DropdownClose: <i className="caret-up" />,
-            SortAsc: <i className="caret-up" />,
-            SortDesc: <i className="caret-down" />,
-            Unsorted: <i className="sort" />,
-            Loading: <i className="circle-notch spin" />,
-            CheckboxChecked: <i className="check-square" />,
-            CheckboxUnchecked: <i className="square" />,
-          }}
-          columns={[
-            [
-              { dataKey: "first_name", header: "First Name" },
-              { dataKey: "last_name", header: "Last Name" },
-            ],
-            { dataKey: "email", header: "Email" },
-            { dataKey: "gender", header: "Gender" },
-          ]}
-          data={mockData}
-          favouritesEnabled={false}
-        />
-        ,
+        <AdvancedList />,
       </div>
     );
   }
