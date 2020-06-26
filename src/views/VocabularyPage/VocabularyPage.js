@@ -19,9 +19,9 @@ export default class VocabularyPage extends Component {
       promise: 0,
       res: 0,
       promises: 0,
+      words:[]
     };
     this.accessSpreadsheet = this.accessSpreadsheet.bind(this);
-    this.logState = this.logState.bind(this);
     this.doStuff = this.doStuff.bind(this);
     this.handle = this.handle.bind(this);
   }
@@ -37,16 +37,10 @@ export default class VocabularyPage extends Component {
       "there are " + doc.sheetCount + " sheets in this document " + doc.title
     );
     this.setState({ doc });
-
-    var promises = [];
     for (var k in doc._rawSheets) {
       var sheet = doc._rawSheets[k];
       sheet.getRows().then((res) => this.handle(res));
     }
-  }
-
-  logState() {
-    console.log(this.state);
   }
 
   doStuff(data) {
@@ -55,9 +49,13 @@ export default class VocabularyPage extends Component {
 
   handle(res) {
     console.log(res.length);
+    var data = [];
     res.forEach((row) => {
-      console.log(row._rawData[0]);
+      data.push({ de: row._rawData[1], en: row._rawData[0] });
     });
+    var words = this.state.words;
+    words = words.concat(data);
+    this.setState({ words });
   }
 
   render() {
@@ -66,9 +64,7 @@ export default class VocabularyPage extends Component {
         <Button onClick={this.accessSpreadsheet}>
           Ich werde english können!
         </Button>
-        <Button onClick={this.logState}>State Log</Button>
         <Button onClick={this.doStuff}>doStuff</Button>
-
         <Table />
       </div>
     );
