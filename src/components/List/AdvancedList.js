@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ObjectList from "react-object-list";
-//import { FontAwesome } from "react-object-list/icons";
+import { FontAwesome } from "react-object-list/icons";
 //import { TextContainsFilter } from "react-object-list/filters";
 
 const mockData = [];
@@ -50,20 +50,7 @@ export default class VocabularyPage extends Component {
     return (
       <div>
         <ObjectList
-          icons={{
-            OptionalFields: <i className="list" />,
-            Favourites: <i className="heart" />,
-            RemoveFavourite: <i className="trash" />,
-            RemoveFilter: <i className="minus-circle" />,
-            DropdownOpen: <i className="caret-down" />,
-            DropdownClose: <i className="caret-up" />,
-            SortAsc: <i className="caret-up" />,
-            SortDesc: <i className="caret-down" />,
-            Unsorted: <i className="sort" />,
-            Loading: <i className="circle-notch spin" />,
-            CheckboxChecked: <i className="check-square" />,
-            CheckboxUnchecked: <i className="square" />,
-          }}
+          icons={FontAwesome(4)}
           columns={columns}
           data={mockData}
           favouritesEnabled={false}
