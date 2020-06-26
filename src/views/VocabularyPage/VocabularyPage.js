@@ -18,6 +18,7 @@ export default class VocabularyPage extends Component {
       sheet: 0,
       promise: 0,
       res: 0,
+      promises: 0,
     };
     this.accessSpreadsheet = this.accessSpreadsheet.bind(this);
     this.logState = this.logState.bind(this);
@@ -32,20 +33,16 @@ export default class VocabularyPage extends Component {
     });
 
     await doc.loadInfo(); // loads document properties and worksheets
-    console.log(doc.title);
-    console.log("there are " + doc.sheetCount + " sheets in this document");
-    const sheet = doc._rawSheets[0];
+    console.log(
+      "there are " + doc.sheetCount + " sheets in this document " + doc.title
+    );
+    this.setState({ doc });
+
     var promises = [];
-    var promise = sheet.getRows();
-
-    this.setState({ doc, sheet, promise });
-    promise.then((res) => this.handle(res));
-    // for (var i = 0; i <= doc.sheetCount; i++) {
-    //   sheet.getRows()).then(doStuff())
-    //   console.log("Hallo " + i + sheet.title);
-    // }
-
-    // promise.then((customerData) => this.doStuff(customerData));
+    for (var k in doc._rawSheets) {
+      var sheet = doc._rawSheets[k];
+      sheet.getRows().then((res) => this.handle(res));
+    }
   }
 
   logState() {
@@ -55,9 +52,14 @@ export default class VocabularyPage extends Component {
   doStuff(data) {
     console.log(this.state);
   }
+
   handle(res) {
-    this.setState({ res });
+    console.log(res.length);
+    res.forEach((row) => {
+      console.log(row._rawData[0]);
+    });
   }
+
   render() {
     return (
       <div>
