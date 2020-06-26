@@ -3,36 +3,14 @@ import ObjectList from "react-object-list";
 //import { FontAwesome } from "react-object-list/icons";
 
 const mockData = [];
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
+for(var i = 0 ; i < 5 ; i++){
+    mockData.push({
+        email: "hans22@ff",
+        gender: "fff",
+        first_name: "fd",
+        last_name: " gg",
+      });
+}
 
 export default class VocabularyPage extends Component {
   render() {

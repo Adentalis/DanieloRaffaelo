@@ -9,8 +9,6 @@ const doc = new GoogleSpreadsheet(
   "1IcwMfyNgp2ZdvEbSQPqsXGo2JZG6BbF3dI8xVKdNlgY"
 );
 
-
-
 export default class VocabularyPage extends Component {
   constructor(props) {
     super(props);
