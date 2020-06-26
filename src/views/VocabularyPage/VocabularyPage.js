@@ -14,11 +14,13 @@ export default class VocabularyPage extends Component {
     super(props);
     this.state = {
       doc: 0,
-      words:[]
+      words: [],
+      endText: "WEG MIT DIR!!",
     };
     this.accessSpreadsheet = this.accessSpreadsheet.bind(this);
     this.doStuff = this.doStuff.bind(this);
     this.resolveSheets = this.resolveSheets.bind(this);
+    this.updateTable = this.updateTable.bind(this);
   }
 
   async accessSpreadsheet() {
@@ -32,6 +34,8 @@ export default class VocabularyPage extends Component {
       "there are " + doc.sheetCount + " sheets in this document " + doc.title
     );
     this.setState({ doc });
+    this.setState({ endText: " aa" });
+
     for (var k in doc._rawSheets) {
       var sheet = doc._rawSheets[k];
       sheet.getRows().then((res) => this.resolveSheets(res));
@@ -43,7 +47,6 @@ export default class VocabularyPage extends Component {
   }
 
   resolveSheets(res) {
-    console.log(res.length);
     var data = [];
     res.forEach((row) => {
       data.push({ de: row._rawData[1], en: row._rawData[0] });
@@ -53,14 +56,20 @@ export default class VocabularyPage extends Component {
     this.setState({ words });
   }
 
+  updateTable() {
+    this.setState({ endText: " aa" });
+  }
+
   render() {
     return (
       <div>
         <Button onClick={this.accessSpreadsheet}>
           Ich werde english können!
         </Button>
+        <Button onClick={this.updateTable}>Magie :)</Button>
         <Button onClick={this.doStuff}>doStuff</Button>
         <Table />
+        <Button>{this.state.endText}</Button>
       </div>
     );
   }
