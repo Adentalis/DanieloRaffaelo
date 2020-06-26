@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import ObjectList from "react-object-list";
 import { FontAwesome } from "react-object-list/icons";
 //import { TextContainsFilter } from "react-object-list/filters";
+import ReactDom from 'react-dom'
+
 
 const mockData = [];
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 51; i++) {
   mockData.push({
     email: "hans22@ff",
     gender: "fff",
@@ -23,7 +25,7 @@ const columns = [
     {dataKey: 'ip_address', header: 'IPv6', sortKey: 'ip_address', optional: true},
   ]
 
-export default class VocabularyPage extends Component {
+export default class AdvancedList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +33,7 @@ export default class VocabularyPage extends Component {
       perPage: 7,
       totalCount: mockData.length,
       sortKeys: [],
-      data: mockData.slice(0, 7),
+      data: mockData.slice(0, 27),
       extraColumns: ["last_name"],
       filters: [
         {
@@ -137,15 +139,27 @@ updateData = (currentPage) => {
 }
 
   render() {
+    const { currentPage, perPage, totalCount, sortKeys, extraColumns, data } = this.state
+
     return (
       <div>
         <ObjectList
           icons={FontAwesome(4)}
           columns={columns}
-          data={mockData}
+          data={data}
           favouritesEnabled={false}
           maxPages={3}
-
+          meta={{
+            currentPage,
+            perPage,
+            totalCount,
+            sortKeys,
+            extraColumns,
+          }}
+          updatePage={this.updatePage}
+          updateColumns={this.updateColumns}
+          addFilter={this.addFilter}
+          removeFilter={this.removeFilter}
         />
         ,
       </div>
