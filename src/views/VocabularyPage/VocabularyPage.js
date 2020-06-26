@@ -9,37 +9,7 @@ const doc = new GoogleSpreadsheet(
   "1IcwMfyNgp2ZdvEbSQPqsXGo2JZG6BbF3dI8xVKdNlgY"
 );
 
-const mockData = [];
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
-mockData.push({
-  email: "hans22@ff",
-  gender: "fff",
-  first_name: "fd",
-  last_name: " gg",
-});
+
 
 export default class VocabularyPage extends Component {
   constructor(props) {
