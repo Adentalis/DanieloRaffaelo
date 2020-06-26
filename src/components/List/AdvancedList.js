@@ -13,6 +13,16 @@ for (var i = 0; i < 5; i++) {
   });
 }
 
+const columns = [
+    [
+      {dataKey: 'first_name', header: 'First Name', sortKey: 'first_name'},
+      {dataKey: 'last_name', header: 'Last Name', sortKey: 'last_name', optional: true},
+    ],
+    {dataKey: 'email', header: 'Email', sortKey: 'email'},
+    {dataKey: 'gender', header: 'Gender', sortKey: 'gender'},
+    {dataKey: 'ip_address', header: 'IPv6', sortKey: 'ip_address', optional: true},
+  ]
+
 export default class VocabularyPage extends Component {
   constructor(props) {
     super(props);
@@ -54,14 +64,7 @@ export default class VocabularyPage extends Component {
             CheckboxChecked: <i className="check-square" />,
             CheckboxUnchecked: <i className="square" />,
           }}
-          columns={[
-            [
-              { dataKey: "first_name", header: "First Name" },
-              { dataKey: "last_name", header: "Last Name" },
-            ],
-            { dataKey: "email", header: "Email" },
-            { dataKey: "gender", header: "Gender" },
-          ]}
+          columns={columns}
           data={mockData}
           favouritesEnabled={false}
         />
