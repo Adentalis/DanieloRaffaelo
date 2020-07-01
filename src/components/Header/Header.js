@@ -22,6 +22,7 @@ export default function Header(props) {
         <Button href="/"> Danielus Raffaellus</Button>
         <Button href="/vocabulary"> English {props.startText}</Button>
         <Button href="/metamask"> Metamask </Button>
+        <Button href="/test"> Tests </Button>
       </Toolbar>
     </AppBar>
   );

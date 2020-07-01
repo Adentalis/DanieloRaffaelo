@@ -1,0 +1,5 @@
+.center {
+    height: 309px;
+    line-height: 309px; /* same as height! */
+    color: red;
+  }
