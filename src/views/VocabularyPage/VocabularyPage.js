@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import Button from "@material-ui/core/Button";
 import Table from "../../c../../components/Table/MaterialTable.js";
+import cTable from "../../c../../components/Table/cMaterialTable.js";
+
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const creds = require("./client_secret.json");
@@ -70,6 +72,7 @@ export default class VocabularyPage extends Component {
         <Button onClick={this.doStuff}>doStuff</Button>
         <Table />
         <Button>{this.state.endText}</Button>
+        <cTable></cTable>
       </div>
     );
   }
