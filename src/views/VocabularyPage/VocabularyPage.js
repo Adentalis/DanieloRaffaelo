@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import Table from "../../c../../components/Table/MaterialTable.js";
 import cTable from "../../c../../components/Table/cMaterialTable.js";
+import Game from "./Sections/Game.js";
 
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
@@ -44,10 +45,6 @@ export default class VocabularyPage extends Component {
     }
   }
 
-  doStuff(data) {
-    console.log(this.state);
-  }
-
   resolveSheets(res) {
     var data = [];
     res.forEach((row) => {
@@ -62,6 +59,10 @@ export default class VocabularyPage extends Component {
     this.setState({ endText: " aa" });
   }
 
+  doStuff(data) {
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div>
@@ -72,7 +73,8 @@ export default class VocabularyPage extends Component {
         <Button onClick={this.doStuff}>doStuff</Button>
         <Table />
         <Button>{this.state.endText}</Button>
-        <cTable></cTable>
+        <cTable />
+        <Game/>
       </div>
     );
   }
