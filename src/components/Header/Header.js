@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 
 import Folkme from "../Folkme/Folkme.js";
 
-export default function Header(props) {
+export default function Header() {
   return (
     <AppBar position="sticky">
       <Folkme
@@ -20,7 +20,7 @@ export default function Header(props) {
 
       <Toolbar id="back-to-top-anchor">
         <Button href="/"> Danielus Raffaellus</Button>
-        <Button href="/vocabulary"> English {props.startText}</Button>
+        <Button href="/vocabulary"> English</Button>
         <Button href="/metamask"> Metamask </Button>
         <Button href="/test"> Tests </Button>
       </Toolbar>
