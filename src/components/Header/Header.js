@@ -21,7 +21,7 @@ export default function Header() {
       <Toolbar id="back-to-top-anchor">
         <Button href="/"> Danielus Raffaellus</Button>
         <Button href="/vocabulary"> English</Button>
-        <Button href="/metamask"> Metamask </Button>
+        <Button href="/todolist"> ToDo's </Button>
         <Button href="/test"> Tests </Button>
       </Toolbar>
     </AppBar>
