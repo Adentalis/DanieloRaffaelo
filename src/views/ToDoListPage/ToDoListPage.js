@@ -8,6 +8,8 @@ export default class ToDoListPage extends Component {
     this.state = { items: [], text: "" };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
+    this.markItemCompleted = this.markItemCompleted.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
 
   handleTextChange(event) {
@@ -20,6 +22,7 @@ export default class ToDoListPage extends Component {
     //event.preventDefault();
 
     let newItem = {
+      id: this.state.items.length,
       date: new Date().toLocaleDateString(),
       text: this.state.text,
       finished: false,
@@ -29,6 +32,30 @@ export default class ToDoListPage extends Component {
       items: prevState.items.concat(newItem),
       text: "",
     }));
+  }
+
+  markItemCompleted(itemId) {
+    debugger;
+
+    var updatedItems = this.state.items.map((item) => {
+      if (itemId === item.id) item.finished = !item.finished;
+
+      return item;
+    });
+
+    // State Updates are Merged
+    this.setState({
+      items: [].concat(updatedItems),
+    });
+  }
+  handleDeleteItem(itemId) {
+    var updatedItems = this.state.items.filter((item) => {
+      return item.id !== itemId;
+    });
+
+    this.setState({
+      items: [].concat(updatedItems),
+    });
   }
 
   render() {
@@ -55,7 +82,9 @@ export default class ToDoListPage extends Component {
         <br />
         ----------TESTS---------------
         <br />
-        items --> {this.state.items.length}
+        items "--> {this.state.items.length}
+        <br />
+       
       </div>
     );
   }

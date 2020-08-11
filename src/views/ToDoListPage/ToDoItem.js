@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-class TodoItem extends Component {
+class ToDoItem extends Component {
   constructor(props) {
     super(props);
     this.markCompleted = this.markCompleted.bind(this);
@@ -26,3 +26,5 @@ class TodoItem extends Component {
     );
   }
 }
+
+export default ToDoItem;
