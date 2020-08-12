@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 import ToDoList from "./ToDoList";
+import Tabs from "./Tabs";
+require("./styles.css");
+
+const { GoogleSpreadsheet } = require("google-spreadsheet");
+const creds = require("../VocabularyPage/client_secret.json");
+const doc = new GoogleSpreadsheet(
+  "1svIOCExO3fe847LUexm7lWaADh_DjpZ3pXhu8oL4Tik"
+);
 
 export default class ToDoListPage extends Component {
   constructor(props) {
@@ -35,8 +43,6 @@ export default class ToDoListPage extends Component {
   }
 
   markItemCompleted(itemId) {
-    debugger;
-
     var updatedItems = this.state.items.map((item) => {
       if (itemId === item.id) item.finished = !item.finished;
 
@@ -48,6 +54,7 @@ export default class ToDoListPage extends Component {
       items: [].concat(updatedItems),
     });
   }
+
   handleDeleteItem(itemId) {
     var updatedItems = this.state.items.filter((item) => {
       return item.id !== itemId;
@@ -58,33 +65,58 @@ export default class ToDoListPage extends Component {
     });
   }
 
+  //GOOGLE THINGS
+  async accessSpreadsheet() {
+    await doc.useServiceAccountAuth({
+      client_email: creds.client_email,
+      private_key: creds.private_key,
+    });
+
+    const info = await doc.loadInfo(); // loads document properties and worksheets
+    var sheet = info._rawSheets[0];
+    sheet.getRows().then((res) => this.resolveSheets(res));
+  }
+
+  resolveSheets(res) {
+    var data = [];
+    res.forEach((row) => {
+      data.push({ de: row._rawData[1], en: row._rawData[0] });
+    });
+    var words = this.state.words;
+    words = words.concat(data);
+    this.setState({ words });
+  }
+
   render() {
     return (
       <div>
-        Es gibt viel zu tun Mylord
-        <br />
-        Der lange
-        <br />
-        <ToDoList
-          items={this.state.items}
-          onItemCompleted={this.markItemCompleted}
-          onDeleteItem={this.handleDeleteItem}
-        />
-        <br />
-        <input
-          type="text"
-          onChange={this.handleTextChange}
-          value={this.state.text}
-        />
-        <button onClick={this.handleAddItem} disabled={!this.state.text}>
-          Jeeey
-        </button>
-        <br />
-        ----------TESTS---------------
-        <br />
-        items "--> {this.state.items.length}
-        <br />
-       
+        <h1>Es gibt viel zu tun Mylord</h1>
+        <Tabs>
+          <div label="Langer">
+            <ToDoList
+              items={this.state.items}
+              onItemCompleted={this.markItemCompleted}
+              onDeleteItem={this.handleDeleteItem}
+            />
+            <br />
+            <input
+              type="text"
+              onChange={this.handleTextChange}
+              value={this.state.text}
+            />
+            <button onClick={this.handleAddItem} disabled={!this.state.text}>
+              Jeeey
+            </button>
+            <br />
+            ----------TESTS---------------
+            <br />
+            items "--> {this.state.items.length}
+            <br />
+            <button onClick={this.accessSpreadsheet}>Data</button>
+          </div>
+          <div label="Kleines">GGM for <em>President</em></div>
+          <div label="Mittel">Bald werden wir die Welt erobern</div>
+        </Tabs>
       </div>
     );
   }
