@@ -93,30 +93,47 @@ export default class ToDoListPage extends Component {
         <h1>Es gibt viel zu tun Mylord</h1>
         <Tabs>
           <div label="Langer">
-            <ToDoList
-              items={this.state.items}
-              onItemCompleted={this.markItemCompleted}
-              onDeleteItem={this.handleDeleteItem}
-            />
-            <br />
-            <input
-              type="text"
-              onChange={this.handleTextChange}
-              value={this.state.text}
-            />
-            <button onClick={this.handleAddItem} disabled={!this.state.text}>
-              Jeeey
-            </button>
-            <br />
-            ----------TESTS---------------
-            <br />
-            items "--> {this.state.items.length}
-            <br />
-            <button onClick={this.accessSpreadsheet}>Data</button>
+            {this.sectionDaniel()}
+            {this.sectionDanielTests()}
           </div>
-          <div label="Kleines">GGM for <em>President</em></div>
+          <div label="Kleines">
+            GGM for <em>President</em>
+          </div>
           <div label="Mittel">Bald werden wir die Welt erobern</div>
         </Tabs>
+      </div>
+    );
+  }
+
+  sectionDaniel() {
+    return (
+      <div>
+        <ToDoList
+          items={this.state.items}
+          onItemCompleted={this.markItemCompleted}
+          onDeleteItem={this.handleDeleteItem}
+        />
+        <br />
+        <input
+          type="text"
+          onChange={this.handleTextChange}
+          value={this.state.text}
+        />
+        <button onClick={this.handleAddItem} disabled={!this.state.text}>
+          Jeeey
+        </button>
+      </div>
+    );
+  }
+  sectionDanielTests() {
+    return (
+      <div>
+        <br />
+        ----------TESTS---------------
+        <br />
+        items "--> {this.state.items.length}
+        <br />
+        <button onClick={this.accessSpreadsheet}>Data</button>
       </div>
     );
   }
