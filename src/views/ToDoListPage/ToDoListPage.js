@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ToDoList from "./ToDoList";
-import Tabs from "./Tabs";
-require("./styles.css");
+import ToDoList from "./ToDo/ToDoList";
+import Tabs from "./Tab/Tabs";
 
 const { GoogleSpreadsheet } = require("google-spreadsheet");
 const creds = require("../VocabularyPage/client_secret.json");
