@@ -1,0 +1,28 @@
+.todoitem {
+  position: relative;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border-top: 1px solid #ccc;
+}
+
+.todoitem.done {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* LIST */
+/* removes the left dot*/
+.todolist {
+  padding-left: 0;
+}
+
+/* ITEM */
+.form-check-input {
+  margin-right: 1em;
+}
+
+.btn-danger {
+  position: absolute;
+  right: 1.5rem;
+}
+/*# sourceMappingURL=styles.css.map */

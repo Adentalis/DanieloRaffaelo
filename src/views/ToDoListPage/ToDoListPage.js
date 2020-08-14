@@ -124,6 +124,7 @@ export default class ToDoListPage extends Component {
       </div>
     );
   }
+  
   sectionDanielTests() {
     return (
       <div>

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+require("./styles.css");
+
 class ToDoItem extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +15,18 @@ class ToDoItem extends Component {
   }
 
   render() {
+    var itemClass = "todoitem.done";
     return (
-      <li ref={(li) => (this._listItem = li)}>
+      <li className={itemClass} ref={(li) => (this._listItem = li)}>
         <label>
-          <input type="checkbox" onChange={this.markCompleted} />{" "}
+          <input
+            type="checkbox"
+            className="form-check-input"
+            onChange={this.markCompleted}
+          />{" "}
           {this.props.text}
         </label>
-        <button type="button" onClick={this.deleteItem}>
+        <button type="button" className="btn-danger" onClick={this.deleteItem}>
           x
         </button>
       </li>

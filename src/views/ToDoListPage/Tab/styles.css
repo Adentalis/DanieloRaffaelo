@@ -11,10 +11,15 @@
 }
 
 .tab-list-active {
-  background-color: rgb(104, 45, 241);
-  border: groove rgb(133, 19, 240);
-  border-width: 5px;
+  position:relative;
   font-size: 20px;
+  padding: 8px 24px;
+  margin: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
   color:white;
-  font-family: Arial, Helvetica, sans-serif;  border-radius: 50px;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  background: linear-gradient(150deg, #0162c8,#55e7fc); 
+
 }

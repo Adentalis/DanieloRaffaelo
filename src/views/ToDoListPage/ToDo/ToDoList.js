@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import ToDoItem from "./ToDoItem";
 
+require("./styles.css");
+
+
 class ToDoList extends Component {
   constructor(props) {
     super(props);
