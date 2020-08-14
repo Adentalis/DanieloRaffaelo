@@ -1,0 +1,15 @@
+.box {
+  background-color: #00fa6a;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.box.a {
+  width: 200px;
+}
+
+.box.a.b {
+  width: 50px;
+}
+/*# sourceMappingURL=styles.css.map */

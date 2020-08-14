@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Scrolltext from "./Sections/Scrolltext/Scrolltext.js";
 import Times from "./Sections/Times/Times.js";
 import Button from "@material-ui/core/Button";
+require("./styles.css");
 
 export default class TestPage extends Component {
   constructor(props) {
@@ -69,8 +70,12 @@ export default class TestPage extends Component {
     return (
       <div>
         <Scrolltext />
-        <Button onClick={this.onStartStop}> STARTE DIE UHR</Button>
 
+        <button className="box">Data</button>
+        <button className="box a">Data2</button>
+        <button className="box a b ">Data3</button>
+
+        <Button onClick={this.onStartStop}> STARTE DIE UHR</Button>
         <Times
           timeLabel={this.state.timeLabel}
           timeLeftInSecond={this.state.timeLeftInSecond}
