@@ -27,7 +27,72 @@
   right: 100px;
   border: 20px solid #aa66ff;
   border-radius: 50%;
-  -webkit-box-shadow: 0 0 50px #0a66ff, inset 0 0 50px #0a66ff;
-          box-shadow: 0 0 50px #0a66ff, inset 0 0 50px #0a66ff;
+  -webkit-box-shadow: 0 0 50px #aa66ff, inset 0 0 50px #aa66ff;
+          box-shadow: 0 0 50px #aa66ff, inset 0 0 50px #aa66ff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #aa66ff);
+  -webkit-animation: animate 5s linear infinite;
+          animation: animate 5s linear infinite;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    -webkit-box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 60px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 60px #0f0, inset 0 0 50x #00ff00;
+  }
+  40% {
+    -webkit-box-shadow: 0 0 40px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 40px #0f0, inset 0 0 50x #00ff00;
+  }
+  60% {
+    -webkit-box-shadow: 0 0 80px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 80px #0f0, inset 0 0 50x #00ff00;
+  }
+  80% {
+    -webkit-box-shadow: 0 0 100px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 100px #0f0, inset 0 0 50x #00ff00;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    -webkit-box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 60px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 60px #0f0, inset 0 0 50x #00ff00;
+  }
+  40% {
+    -webkit-box-shadow: 0 0 40px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 40px #0f0, inset 0 0 50x #00ff00;
+  }
+  60% {
+    -webkit-box-shadow: 0 0 80px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 80px #0f0, inset 0 0 50x #00ff00;
+  }
+  80% {
+    -webkit-box-shadow: 0 0 100px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 100px #0f0, inset 0 0 50x #00ff00;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+            box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
 }
 /*# sourceMappingURL=styles.css.map */
