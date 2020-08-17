@@ -1,0 +1,25 @@
+.animatedCircle{
+    background: #333333;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle{
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.circle::before{
+    content: "";
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    border: 20px solid #aa66ff;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #0a66ff, inset 0 0 50px #0a66ff;
+}
