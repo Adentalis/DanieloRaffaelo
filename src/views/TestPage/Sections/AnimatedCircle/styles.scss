@@ -10,6 +10,7 @@
   position: relative;
   width: 400px;
   height: 400px;
+  /*filter: url(#waves) blur(1px);*/
 }
 
 .circle::before {
@@ -25,6 +26,25 @@
   -webkit-box-reflect: below 10px
     linear-gradient(transparent, transparent, #aa66ff);
   animation: animate 5s linear infinite;
+}
+
+.circle::after {
+    content: "";
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    border: 20px solid #aa66ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #aa66ff, inset 0 0 20px #ffffff;
+    -webkit-box-reflect: below 10px
+      linear-gradient(transparent, transparent, #ffffff);
+    animation: animate 5s linear infinite;
+  }
+
+.circle:nth-child(2)::before{
+    animation-delay: 2,5s;
 }
 
 @keyframes animate {
@@ -48,4 +68,8 @@
     box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
     filter: hue-rotate(360deg);
   }
+}
+.svg{
+    width: 0;
+    height: 0;
 }
