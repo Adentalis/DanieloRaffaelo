@@ -51,11 +51,6 @@
           animation: animate 5s linear infinite;
 }
 
-.circle:nth-child(2)::before {
-  -webkit-animation-delay: 2,5s;
-          animation-delay: 2,5s;
-}
-
 @-webkit-keyframes animate {
   0% {
     -webkit-box-shadow: 0 0 50px #0f0, inset 0 0 50x #00ff00;
