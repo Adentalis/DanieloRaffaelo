@@ -10,6 +10,7 @@ import image7 from "../../../../assets/img/cats/07.jpg";
 import image8 from "../../../../assets/img/cats/08.jpg";
 
 export default class ImageRotation3D extends Component {
+
   render() {
     return (
       <div className="rotation3D">
