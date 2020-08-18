@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Scrolltext from "./Sections/Scrolltext/Scrolltext.js";
 import Times from "./Sections/Times/Times.js";
 import AnimatedCircle from "./Sections/AnimatedCircle/AnimatedCircle.js";
+import ImageRotation3D from "./Sections/ImageRotation3D/ImageRotation3D.js";
 
 import Button from "@material-ui/core/Button";
 require("./styles.css");
@@ -83,6 +84,7 @@ export default class TestPage extends Component {
           timeLeftInSecond={this.state.timeLeftInSecond}
         />
         <AnimatedCircle/>
+        <ImageRotation3D/>
       </div>
     );
   }
