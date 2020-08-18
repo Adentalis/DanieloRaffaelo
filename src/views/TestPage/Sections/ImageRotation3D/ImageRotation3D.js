@@ -10,9 +10,18 @@ import image7 from "../../../../assets/img/cats/07.jpg";
 import image8 from "../../../../assets/img/cats/08.jpg";
 
 export default class ImageRotation3D extends Component {
+  clicked() {
+    let box = document.querySelector(".content");
+    window.onmousemove = function (e) {
+      let x = e.clientX / 6;
+         box.style.transform =
+        "perspective(2000px) rotateY(" + x + "0deg)";
+    };
+  }
+
   render() {
     return (
-      <div className="rotation3D">
+      <div className="rotation3D" onClick={this.clicked}>
         <div className="content">
           <span id="s1">
             <img src={image1}></img>
