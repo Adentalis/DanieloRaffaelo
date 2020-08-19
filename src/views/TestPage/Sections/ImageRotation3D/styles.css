@@ -50,8 +50,8 @@
   height: 200px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-animation: rotate 20s linear infinite;
-          animation: rotate 20s linear infinite;
+  -webkit-animation: rotate 25s linear infinite;
+          animation: rotate 25s linear infinite;
 }
 
 @-webkit-keyframes rotate {
