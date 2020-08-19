@@ -24,8 +24,8 @@ export default class Data extends Component {
       <div id="windowData">
         Das weiß ich über mich
         <button onClick={this.updateWindowDimensions}>ReloadData</button>
-        <div>W-Height: {this.state.width}</div>
-        <div>W-Width: {this.state.height}</div>
+        <div>W-Height: {this.state.height}</div>
+        <div>W-Width: {this.state.width}</div>
       </div>
     );
   }
