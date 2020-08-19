@@ -1,22 +1,48 @@
 .GridPage {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 3fr 2fr;
-      grid-template-columns: 1fr 3fr 2fr;
-  -ms-grid-rows: (1fr)[4];
-      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+  -ms-grid-rows: 2fr (1fr)[4];
+      grid-template-rows: 2fr repeat(4, 1fr);
   grid-gap: 10px;
-}
-
-@media (max-width: 700px) {
-  .GridPage {
-    -ms-grid-columns: 1fr 2fr;
-        grid-template-columns: 1fr 2fr;
-  }
 }
 
 .GridPage div {
   border: 5px solid #aa6644;
   min-height: 50px;
+  overflow: hidden;
+}
+
+#windowData {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#windowData div {
+  border: 0px;
+}
+
+@media (max-width: 800px) {
+  .GridPage {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+  #windowData {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1/3;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
