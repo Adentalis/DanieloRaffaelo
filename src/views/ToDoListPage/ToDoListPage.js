@@ -11,7 +11,6 @@ const doc = new GoogleSpreadsheet(
 export default class ToDoListPage extends Component {
   constructor(props) {
     super(props);
-
     this.state = { items: [], text: "" };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
@@ -124,7 +123,7 @@ export default class ToDoListPage extends Component {
       </div>
     );
   }
-  
+
   sectionDanielTests() {
     return (
       <div>
