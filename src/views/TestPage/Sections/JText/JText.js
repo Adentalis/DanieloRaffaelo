@@ -7,6 +7,12 @@ export default class JText extends Component {
   constructor(props) {
     super(props);
     this.state = { rangeValue: 50 };
+    this.updateInputValue = this.updateInputValue.bind(this);
+  }
+
+  updateInputValue(e) {
+    var value = parseInt(e.target.value);
+    this.setState({ rangeValue: value });
   }
 
   render() {
@@ -25,11 +31,17 @@ export default class JText extends Component {
           type="range"
           min="1"
           max="100"
-          //value="50"
           class="slider"
           id="myRange"
+          onChange={this.updateInputValue}
         />
-        {[...new Array(100)].map(() => `J ist die beste! `).join("\n")}
+        {this.state.rangeValue > 0 && (
+          <div>
+            {[...new Array(this.state.rangeValue)]
+              .map(() => `J ist die beste, Jeey! `)
+              .join("\n")}
+          </div>
+        )}
       </div>
     );
   }
