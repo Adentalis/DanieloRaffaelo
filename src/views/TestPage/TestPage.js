@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Scrolltext from "./Sections/Scrolltext/Scrolltext.js";
+import JText from "./Sections/JText/JText.js";
 import Times from "./Sections/Times/Times.js";
 import AnimatedCircle from "./Sections/AnimatedCircle/AnimatedCircle.js";
 import ImageRotation3D from "./Sections/ImageRotation3D/ImageRotation3D.js";
@@ -27,7 +28,6 @@ export default class TestPage extends Component {
     try {
       console.log("Hello Youtube");
     } catch (error) {
-      // Catch any errors for any of the above operations.
       alert(`Testpage did not mount hmm?!`);
       console.error(error);
     }
@@ -73,7 +73,7 @@ export default class TestPage extends Component {
     return (
       <div>
         <Scrolltext />
-
+        <JText />
         <button className="box">Data</button>
         <button className="box a">Data2</button>
         <button className="box a b ">Data3</button>
@@ -83,8 +83,8 @@ export default class TestPage extends Component {
           timeLabel={this.state.timeLabel}
           timeLeftInSecond={this.state.timeLeftInSecond}
         />
-        <AnimatedCircle/>
-        <ImageRotation3D/>
+        <AnimatedCircle />
+        <ImageRotation3D />
       </div>
     );
   }

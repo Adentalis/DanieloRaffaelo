@@ -1,12 +1,10 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import Zoom from "@material-ui/core/Zoom";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import image from "../../../../assets/img/profile-bg.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,26 +53,7 @@ ScrollTop.propTypes = {
 
 export default function Scrolltext(props) {
   return (
-    <div
-      style={{
-        display: "grid",
-        backgroundImage: "url(" + image + ")",
-        backgroundSize: "auto",
-        backgroundPosition: "top center",
-        color: "red",
-      }}
-    >
-      <Button color="primary">Danielus Rafaellus ist Bombardus</Button>
-      <input
-        type="range"
-        min="1"
-        max="100"
-        //value="50"
-        class="slider"
-        id="myRange"
-      />
-
-      {[...new Array(50)].map(() => `J ist die beste! `).join("\n")}
+    <div>
       <ScrollTop {...props}>
         <Fab color="secondary" size="large" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
