@@ -1,9 +1,5 @@
 import React from "react";
-
-//import SectionBasics from "./Sections/SectionBasics.js";
 import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
 import Zoom from "@material-ui/core/Zoom";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
 function ScrollTop(props) {
   const { children, window } = props;
   const classes = useStyles();
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,
@@ -57,10 +50,6 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
@@ -68,17 +57,24 @@ export default function Scrolltext(props) {
   return (
     <div
       style={{
+        display: "grid",
         backgroundImage: "url(" + image + ")",
         backgroundSize: "auto",
         backgroundPosition: "top center",
+        color: "red",
       }}
     >
       <Button color="primary">Danielus Rafaellus ist Bombardus</Button>
-      <Container>
-        <Box my={2} color="#00ff00">
-          {[...new Array(50)].map(() => `J ist die beste! `).join("\n")}
-        </Box>
-      </Container>
+      <input
+        type="range"
+        min="1"
+        max="100"
+        //value="50"
+        class="slider"
+        id="myRange"
+      />
+
+      {[...new Array(50)].map(() => `J ist die beste! `).join("\n")}
       <ScrollTop {...props}>
         <Fab color="secondary" size="large" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
