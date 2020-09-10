@@ -23,7 +23,7 @@ export default class ProjectPage extends Component {
         <Card
           title="0-100 Bilder"
           text="Hier geht es zu meiner persönlichen Mnemoliste an Bildern/Wörter, zum besseren merken von Zahlen."
-          href="/test"
+          href="/mnemo"
         />
       </div>
     );
