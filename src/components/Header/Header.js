@@ -1,9 +1,7 @@
 import React from "react";
-
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-
 import Folkme from "../Folkme/Folkme.js";
 
 export default function Header() {
@@ -21,10 +19,6 @@ export default function Header() {
       <Toolbar id="back-to-top-anchor">
         <Button href="/"> Danielus Raffaellus</Button>
         <Button href="/projects"> Projekte </Button>
-        <Button href="/vocabulary"> English</Button>
-        <Button href="/todolist"> ToDo's </Button>
-        <Button href="/grid"> Grid</Button>
-        <Button href="/test"> Tests </Button>
       </Toolbar>
     </AppBar>
   );
