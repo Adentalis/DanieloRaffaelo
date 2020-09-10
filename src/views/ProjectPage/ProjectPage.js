@@ -25,6 +25,11 @@ export default class ProjectPage extends Component {
           text="Hier geht es zu meiner persönlichen Mnemoliste an Bildern/Wörter, zum besseren merken von Zahlen."
           href="/mnemo"
         />
+        <Card
+          title="Nostale"
+          text="Hier wird versucht einen Market-Tracker zu starten, welcher stündlich die Preise aus dem Markt abspeichert und anzeigt."
+          href="/nostale"
+        />
       </div>
     );
   }

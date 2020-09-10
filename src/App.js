@@ -8,6 +8,7 @@ import TestPage from "./views/TestPage/TestPage.js";
 import GridPage from "./views/GridPage/GridPage.js";
 import ProjectPage from "./views/ProjectPage/ProjectPage.js";
 import MnemoPage from "./views/MnemoPage/MnemoPage.js";
+import NostalePage from "./views/NostalePage/NostalePage.js";
 
 import Header from "./components/Header/Header.js";
 
@@ -36,6 +37,9 @@ export default class App extends Component {
           </Route>
           <Route path="/mnemo" exact>
             <MnemoPage />
+          </Route>
+          <Route path="/nostale" exact>
+            <NostalePage />
           </Route>
           <Route path="/test" exact>
             <TestPage defaultSessionLength="5" />
