@@ -20,6 +20,7 @@ export default function Header() {
 
       <Toolbar id="back-to-top-anchor">
         <Button href="/"> Danielus Raffaellus</Button>
+        <Button href="/projects"> Projekte </Button>
         <Button href="/vocabulary"> English</Button>
         <Button href="/todolist"> ToDo's </Button>
         <Button href="/grid"> Grid</Button>

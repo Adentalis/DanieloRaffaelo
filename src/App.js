@@ -6,7 +6,7 @@ import VocabularyPage from "./views/VocabularyPage/VocabularyPage.js";
 import MetamaskPage from "./views/ToDoListPage/ToDoListPage.js";
 import TestPage from "./views/TestPage/TestPage.js";
 import GridPage from "./views/GridPage/GridPage.js";
-
+import ProjectPage from "./views/ProjectPage/ProjectPage.js";
 
 import Header from "./components/Header/Header.js";
 
@@ -29,6 +29,9 @@ export default class App extends Component {
           </Route>
           <Route path="/grid" exact>
             <GridPage />
+          </Route>
+          <Route path="/projects" exact>
+            <ProjectPage />
           </Route>
           <Route path="/test" exact>
             <TestPage defaultSessionLength="5" />
