@@ -13,11 +13,14 @@ export default class MnemoPage extends Component {
 
   componentWillMount() {
     const images = this.importAll(
-      require.context("../../assets/img/wordlist/", false, /\.(png|jpe?g|JPG|svg)$/)
+      require.context(
+        "../../assets/img/wordlist/",
+        false,
+        /\.(png|jpe?g|JPG|svg)$/
+      )
     );
-    console.log(images.length + " imgs have loaded");
-    this.setState({ images });
-    var nr = Math.floor(Math.random() * this.state.images.length);
+    var nr = Math.floor(Math.random() * images.length);
+    this.setState({ images: images });
     this.setState({ nr });
   }
 
