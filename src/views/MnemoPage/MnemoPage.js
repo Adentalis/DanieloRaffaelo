@@ -37,7 +37,7 @@ export default class MnemoPage extends Component {
     return (
       <div className="mnemo-page">
         <img
-          id="hihi"
+          id="mnemo-page__img"
           onClick={this.changeImg}
           src={this.state.images[this.state.nr]}
         ></img>

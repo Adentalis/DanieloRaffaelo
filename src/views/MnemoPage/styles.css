@@ -1,5 +1,7 @@
-#hihi {
-    border: solid 2px;
-    height: 300px;
-    margin: 40px;
+#mnemo-page__img {
+  border: solid 2px;
+  border-radius: 8px;
+  height: 200px;
+  width: 200px;
+  margin: 40px;
 }
