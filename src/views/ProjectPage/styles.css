@@ -18,6 +18,7 @@
 .projects-cards {
   min-width: 300px;
   position: relative;
+  text-align: center;
   height: 420px;
   background: #fff;
   margin: 20px;
