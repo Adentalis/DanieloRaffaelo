@@ -1,20 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
+import image from "../../../../assets/img/dn.jpg";
 
-import image from "../../../../assets/img/banner.png";
+import "./Intro.css";
 
-export default function Intro(props) {
-  return (
-    <div
-      style={{
-        backgroundImage: "url(" + image + ")",
-        backgroundSize: "auto",
-        backgroundPosition: "top center",
-        height: "500px",
-        color: "white",
-        fontSize: "3em"
-      }}
-    >
-      This is Daniel
-    </div>
-  );
+export default class Intro extends Component {
+  render() {
+    return <div className="intro"></div>;
+  }
 }
