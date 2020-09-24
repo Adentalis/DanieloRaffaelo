@@ -53,7 +53,6 @@ export default class MnemoPage extends Component {
   changeImg() {
     var nr = Math.floor(Math.random() * this.state.images.length);
     this.setState({ nr });
-    new Audio(m0).play();
   }
 
   render() {
