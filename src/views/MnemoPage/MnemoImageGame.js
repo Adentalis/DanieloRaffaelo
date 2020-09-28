@@ -6,6 +6,8 @@ export default class MnemoImageGame extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mode: "settings",
+      gameLength: 50,
       images: "",
       nr: 0,
     };
@@ -33,14 +35,43 @@ export default class MnemoImageGame extends Component {
     var nr = Math.floor(Math.random() * this.state.images.length);
     this.setState({ nr });
   }
-  render() {
+
+  startContent() {
     return (
-      <div className="mnemo-page-image-game">
+      <div>
+        Wie viele Bilder
+        <br />
+        <input
+          type="range"
+          min="1"
+          max="100"
+          onChange={(e) =>
+            this.setState({ gameLength: parseInt(e.target.value) })
+          }
+        ></input>
+        <button onClick={() => this.setState({ mode: "play" })}>Start</button>
+      </div>
+    );
+  }
+
+  gameContent() {
+    return (
+      <div>
+        <p>12/{this.state.gameLength}</p>
         <img
           className="mnemo-page__img"
           onClick={this.changeImg}
           src={this.state.images[this.state.nr]}
         ></img>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div className="mnemo-page-image-game">
+        {this.state.mode === "settings" && this.startContent()}
+        {this.state.mode === "play" && this.gameContent()}
       </div>
     );
   }
