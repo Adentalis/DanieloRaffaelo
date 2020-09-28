@@ -8,8 +8,12 @@ export default class MnemoImageGame extends Component {
     this.state = {
       mode: "settings",
       gameLength: 50,
-      images: "",
-      nr: 0,
+      round: 0,
+      timeVisible: false,
+      pastTime: 0,
+      timerInterval: null,
+      images: null,
+      choosenImg: null,
     };
     this.changeImg = this.changeImg.bind(this);
   }
@@ -22,9 +26,7 @@ export default class MnemoImageGame extends Component {
         /\.(png|jpe?g|JPG|svg)$/
       )
     );
-    var nr = Math.floor(Math.random() * images.length);
     this.setState({ images: images });
-    this.setState({ nr });
   }
 
   importAll(r) {
@@ -32,10 +34,37 @@ export default class MnemoImageGame extends Component {
   }
 
   changeImg() {
-    var nr = Math.floor(Math.random() * this.state.images.length);
-    this.setState({ nr });
+    this.setState({
+      round: this.state.round + 1,
+    });
   }
 
+  formatTime() {
+    let minute = Math.floor(this.state.pastTime / 60);
+    if (minute < 10) minute = "0" + minute;
+
+    let second = this.state.pastTime - 60 * minute;
+    if (second < 10) second = "0" + second;
+
+    return `${minute}:${second}`;
+  }
+
+  render() {
+    return (
+      <div className="mnemo-page-image-game">
+        {this.state.mode === "settings" && this.startContent()}
+        {this.state.mode === "play" && this.gameContent()}
+      </div>
+    );
+  }
+
+  increaseTimer() {
+    this.setState({
+      pastTime: this.state.pastTime + 1,
+    });
+  }
+
+  //when clicking on Start, change state mode and start timer
   startContent() {
     return (
       <div>
@@ -49,7 +78,33 @@ export default class MnemoImageGame extends Component {
             this.setState({ gameLength: parseInt(e.target.value) })
           }
         ></input>
-        <button onClick={() => this.setState({ mode: "play" })}>Start</button>
+        <button
+          onClick={() => {
+            this.setState({
+              choosenImg: this.state.images
+                .sort(() => 0.5 - Math.random())
+                .slice(0, this.state.gameLength),
+            });
+            this.setState({ mode: "play" });
+            this.setState({
+              timerInterval: setInterval(() => {
+                this.increaseTimer();
+              }, 1000),
+            });
+          }}
+        >
+          Start
+        </button>
+        <p> Zeit live anzeigen?</p>
+        <label class="switch">
+          <input
+            type="checkbox"
+            onChange={(e) => {
+              this.setState({ timeVisible: e.target.checked });
+            }}
+          />
+          <span class="slider round"></span>
+        </label>
       </div>
     );
   }
@@ -57,21 +112,18 @@ export default class MnemoImageGame extends Component {
   gameContent() {
     return (
       <div>
-        <p>12/{this.state.gameLength}</p>
+        <p>
+          {this.state.round}/{this.state.gameLength}
+        </p>
         <img
           className="mnemo-page__img"
           onClick={this.changeImg}
-          src={this.state.images[this.state.nr]}
+          src={this.state.choosenImg[this.state.round]}
         ></img>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div className="mnemo-page-image-game">
-        {this.state.mode === "settings" && this.startContent()}
-        {this.state.mode === "play" && this.gameContent()}
+        {this.state.timeVisible === true && <div>{this.formatTime()}</div>}
+        <button className="mnemo-page-next-img-button" onClick={this.changeImg}>
+          Next
+        </button>
       </div>
     );
   }

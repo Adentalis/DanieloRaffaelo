@@ -19,7 +19,6 @@ export default class MnemoPage extends Component {
         return this.landingContent();
       case "normal":
         return <MnemoNormalGame></MnemoNormalGame>;
-        this.goBack();
       case "image":
         return <MnemoImageGame></MnemoImageGame>;
       case "sound":
