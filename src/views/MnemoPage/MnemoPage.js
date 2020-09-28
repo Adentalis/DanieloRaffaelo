@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./styles.css";
 
-import MnemoLandingPage from "./MnemoLandingPage";
 import MnemoSoundGame from "./MnemoSoundGame";
 import MnemoImageGame from "./MnemoImageGame";
 import MnemoNormalGame from "./MnemoNormalGame";
@@ -9,13 +8,63 @@ import MnemoNormalGame from "./MnemoNormalGame";
 export default class MnemoPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      mode: "landing",
+    };
+  }
+
+  createContent() {
+    switch (this.state.mode) {
+      case "landing":
+        return this.landingContent();
+      case "normal":
+        return <MnemoNormalGame></MnemoNormalGame>;
+        this.goBack();
+      case "image":
+        return <MnemoImageGame></MnemoImageGame>;
+      case "sound":
+        return <MnemoSoundGame></MnemoSoundGame>;
+    }
+  }
+
+  goBack() {
+    return <div>sd</div>;
+  }
+
+  landingContent() {
+    return (
+      <div className="mnemo-page-landing">
+        <h2>MnemoFancyMancy</h2>
+        <button onClick={() => this.setState({ mode: "normal" })}>
+          Normal
+        </button>{" "}
+        <br />
+        <button onClick={() => this.setState({ mode: "image" })}>
+          Bilder
+        </button>{" "}
+        <br />
+        <button onClick={() => this.setState({ mode: "sound" })}>
+          Hören
+        </button>{" "}
+        <br />
+        <button onClick={() => this.setState({ mode: "info" })}>
+          Info
+        </button>{" "}
+        <br />
+      </div>
+    );
   }
 
   render() {
     return (
       <div className="mnemo-page">
-        <MnemoLandingPage></MnemoLandingPage>
+        {this.createContent()}
+        <button
+          className="mnemo-page-navigate-back-button"
+          onClick={() => {
+            this.setState({ mode: "landing" });
+          }}
+        />
       </div>
     );
   }
