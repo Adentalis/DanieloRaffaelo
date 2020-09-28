@@ -4,23 +4,23 @@ import "./styles.css";
 import MnemoLandingPage from "./MnemoLandingPage";
 import MnemoSoundGame from "./MnemoSoundGame";
 import MnemoImageGame from "./MnemoImageGame";
-import MnemoTrainingGame from "./MnemoTrainingGame";
+import MnemoNormalGame from "./MnemoNormalGame";
 
 export default class MnemoPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <div className="mnemo-page">
         <MnemoLandingPage></MnemoLandingPage>
-        <MnemoTrainingGame></MnemoTrainingGame>
-        <MnemoImageGame></MnemoImageGame>
-        <MnemoSoundGame></MnemoSoundGame>
       </div>
     );
   }
 }
+
+// <MnemoNormalGame></MnemoNormalGame>
+// <MnemoImageGame></MnemoImageGame>
+// <MnemoSoundGame></MnemoSoundGame>
