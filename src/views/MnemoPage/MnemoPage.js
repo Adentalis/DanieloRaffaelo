@@ -13,6 +13,10 @@ export default class MnemoPage extends Component {
     };
   }
 
+  callbackFunction = (childData) => {
+    this.setState({ mode: childData });
+  };
+
   createContent() {
     switch (this.state.mode) {
       case "landing":
@@ -20,14 +24,14 @@ export default class MnemoPage extends Component {
       case "normal":
         return <MnemoNormalGame></MnemoNormalGame>;
       case "image":
-        return <MnemoImageGame></MnemoImageGame>;
+        return (
+          <MnemoImageGame
+            parentCallback={this.callbackFunction}
+          ></MnemoImageGame>
+        );
       case "sound":
         return <MnemoSoundGame></MnemoSoundGame>;
     }
-  }
-
-  goBack() {
-    return <div>sd</div>;
   }
 
   landingContent() {

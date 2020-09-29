@@ -6,16 +6,18 @@ export default class MnemoImageGame extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: "settings",
+      gameStarted: false,
       gameLength: 50,
+      gamesEnd: false,
       round: 0,
-      timeVisible: false,
       pastTime: 0,
       timerInterval: null,
+      timeVisible: false,
       images: null,
       choosenImg: null,
     };
     this.changeImg = this.changeImg.bind(this);
+    this.checkGameState = this.checkGameState.bind(this);
   }
 
   componentWillMount() {
@@ -49,19 +51,32 @@ export default class MnemoImageGame extends Component {
     return `${minute}:${second}`;
   }
 
-  render() {
-    return (
-      <div className="mnemo-page-image-game">
-        {this.state.mode === "settings" && this.startContent()}
-        {this.state.mode === "play" && this.gameContent()}
-      </div>
-    );
-  }
-
   increaseTimer() {
     this.setState({
       pastTime: this.state.pastTime + 1,
     });
+  }
+
+  checkGameState() {
+    if (this.state.round + 1 === this.state.gameLength) {
+      this.setState({ gamesEnd: true });
+      clearInterval(this.state.intervalID);
+    }
+  }
+
+  startTimer() {
+    this.state.intervalID = setInterval(() => {
+      this.increaseTimer();
+    }, 1000);
+  }
+
+  render() {
+    return (
+      <div className="mnemo-page-image-game">
+        {this.state.gameStarted === false && this.startContent()}
+        {this.state.gameStarted === true && this.gameContent()}
+      </div>
+    );
   }
 
   //when clicking on Start, change state mode and start timer
@@ -85,12 +100,8 @@ export default class MnemoImageGame extends Component {
                 .sort(() => 0.5 - Math.random())
                 .slice(0, this.state.gameLength),
             });
-            this.setState({ mode: "play" });
-            this.setState({
-              timerInterval: setInterval(() => {
-                this.increaseTimer();
-              }, 1000),
-            });
+            this.setState({ gameStarted: true });
+            this.startTimer();
           }}
         >
           Start
@@ -110,21 +121,42 @@ export default class MnemoImageGame extends Component {
   }
 
   gameContent() {
-    return (
-      <div>
-        <p>
-          {this.state.round}/{this.state.gameLength}
-        </p>
-        <img
-          className="mnemo-page__img"
-          onClick={this.changeImg}
-          src={this.state.choosenImg[this.state.round]}
-        ></img>
-        {this.state.timeVisible === true && <div>{this.formatTime()}</div>}
-        <button className="mnemo-page-next-img-button" onClick={this.changeImg}>
-          Next
-        </button>
-      </div>
-    );
+    if (this.state.gamesEnd === false) {
+      return (
+        <div>
+          <p>
+            {this.state.round + 1}/{this.state.gameLength}
+          </p>
+          <img
+            className="mnemo-page__img"
+            onClick={() => {
+              this.changeImg();
+              this.checkGameState();
+            }}
+            src={this.state.choosenImg[this.state.round]}
+          ></img>
+          {this.state.timeVisible === true && <div>{this.formatTime()}</div>}
+          <button
+            className="mnemo-page-next-img-button"
+            onClick={() => {
+              this.changeImg();
+              this.checkGameState();
+            }}
+          >
+            Next
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h2> games over</h2><p>Endzeit: {this.formatTime()}</p>
+          <p>Durchschnitt pro Bild {this.state.pastTime / this.state.gameLength}s</p>
+          <button onClick={() => this.props.parentCallback("landing")}>
+            Zurück
+          </button>
+        </div>
+      );
+    }
   }
 }
