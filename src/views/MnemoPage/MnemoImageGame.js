@@ -11,7 +11,6 @@ export default class MnemoImageGame extends Component {
       gamesEnd: false,
       round: 0,
       pastTime: 0,
-      timerInterval: null,
       timeVisible: false,
       images: null,
       choosenImg: null,
