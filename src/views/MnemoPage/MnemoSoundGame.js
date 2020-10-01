@@ -27,34 +27,150 @@ import "./styles.css";
 export default class MnemoSoundGame extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      gameStarted: false,
+      gamesLength: 20,
+      digitsPerBlock: 1,
+      timeBetweenBlocks: 1,
+      rndNr: [0],
+      currentNr: 1,
+    };
+  }
+
+  componentWillMount() {}
+
+  componentWillUnmount() {
+    clearInterval(this.state.intervalID);
+  }
+
+  playSound() {
+    switch (this.state.rndNr[this.state.currentNr]) {
+      case 0:
+        new Audio(m0).play();
+        break;
+      case 1:
+        new Audio(m1).play();
+        break;
+      case 2:
+        new Audio(m2).play();
+        break;
+      case 3:
+        new Audio(m3).play();
+        break;
+      case 4:
+        new Audio(m4).play();
+        break;
+      case 5:
+        new Audio(m5).play();
+        break;
+      case 6:
+        new Audio(m6).play();
+        break;
+      case 7:
+        new Audio(m7).play();
+        break;
+      case 8:
+        new Audio(m8).play();
+        break;
+      case 9:
+        new Audio(m9).play();
+        break;
+    }
+    this.setState({ currentNr: this.state.currentNr + 1 });
+  }
+
+  startGameSound() {
+    this.setState({ currentNr: 0 });
+    this.state.intervalID = setInterval(() => {
+      this.playSound();
+    }, 1000);
+  }
+
+  createFakeNumber() {
+    var rndNr = [];
+    for (var i = 0; i < this.state.gamesLength; i++) {
+      rndNr[i] = Math.floor(Math.random() * 10);
+    }
+    this.setState({ rndNr: rndNr });
+
+    var fakeNr = [...rndNr];
+    debugger;
+    fakeNr = 4;
   }
 
   render() {
     return (
       <div className="mnemo-page-sound-game">
-        <div className="testSound">
-          <button onClick={() => new Audio(m0).play()}>0</button>
-          <button onClick={() => new Audio(m1).play()}>1</button>
-          <button onClick={() => new Audio(m2).play()}>2</button>
-          <button onClick={() => new Audio(m3).play()}>3</button>
-          <button onClick={() => new Audio(m4).play()}>4</button>
-          <button onClick={() => new Audio(m5).play()}>5</button>
-          <button onClick={() => new Audio(m6).play()}>6</button>
-          <button onClick={() => new Audio(m7).play()}>7</button>
-          <button onClick={() => new Audio(m8).play()}>8</button>
-          <button onClick={() => new Audio(m9).play()}>9</button>
-          <button onClick={() => new Audio(f0).play()}>0</button>
-          <button onClick={() => new Audio(f1).play()}>1</button>
-          <button onClick={() => new Audio(f2).play()}>2</button>
-          <button onClick={() => new Audio(f3).play()}>3</button>
-          <button onClick={() => new Audio(f4).play()}>4</button>
-          <button onClick={() => new Audio(f5).play()}>5</button>
-          <button onClick={() => new Audio(f6).play()}>6</button>
-          <button onClick={() => new Audio(f7).play()}>7</button>
-          <button onClick={() => new Audio(f8).play()}>8</button>
-          <button onClick={() => new Audio(f9).play()}>9</button>
-        </div>
+        {this.state.currentNr} {this.state.rndNr}
+        {this.state.gameStarted === false && this.startContent()}
+        {this.state.gameStarted === true && this.gameContent()}
+      </div>
+    );
+  }
+
+  startContent() {
+    return (
+      <div>
+        <p>Wie viele Zahlen insgesamt</p>
+        <input
+          onChange={(e) =>
+            this.setState({ gamesLength: parseInt(e.target.value) })
+          }
+        ></input>
+        <p>Ziffern pro Block</p>
+        <button onClick={() => this.setState({ digitsPerBlock: 1 })}>1</button>
+        <button onClick={() => this.setState({ digitsPerBlock: 2 })}>2</button>
+        <button onClick={() => this.setState({ digitsPerBlock: 3 })}>3</button>
+        <button onClick={() => this.setState({ digitsPerBlock: 4 })}>4</button>
+        <button onClick={() => this.setState({ digitsPerBlock: 5 })}>5</button>
+        <button onClick={() => this.setState({ digitsPerBlock: 6 })}>6</button>
+        <p>Abstand pro Block in s</p>
+        <button onClick={() => this.setState({ timeBetweenBlocks: 0 })}>
+          0
+        </button>
+        <button onClick={() => this.setState({ timeBetweenBlocks: 1 })}>
+          1
+        </button>
+        <button onClick={() => this.setState({ timeBetweenBlocks: 2 })}>
+          2
+        </button>
+        <button onClick={() => this.setState({ timeBetweenBlocks: 5 })}>
+          5
+        </button>
+        <button onClick={() => this.setState({ timeBetweenBlocks: 8 })}>
+          8
+        </button>
+        <button onClick={() => this.setState({ timeBetweenBlocks: 12 })}>
+          12
+        </button>
+        <br></br>
+        <button
+          onClick={() => {
+            this.setState({ gameStarted: true });
+            //generate rndNr
+            this.startGameSound();
+            this.createFakeNumber();
+          }}
+        >
+          Start
+        </button>
+      </div>
+    );
+  }
+
+  gameContent() {
+    return (
+      <div>
+        GOGOGGO
+        <button
+          onClick={() => {
+            clearInterval(this.state.intervalID);
+            this.startGameSound();
+          }}
+        >
+          Nochmal
+        </button>
+        <button>Eingeben</button>
       </div>
     );
   }
