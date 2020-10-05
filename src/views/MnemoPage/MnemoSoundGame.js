@@ -94,7 +94,6 @@ export default class MnemoSoundGame extends Component {
     this.setState({ rndNr: rndNr });
 
     var fakeNr = [...rndNr];
-    debugger;
     fakeNr = 4;
   }
 
